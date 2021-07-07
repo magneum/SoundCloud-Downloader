@@ -26,7 +26,7 @@ async def starts(
           url="https://t.me/hypevoidlab")],
         ])
     await ytrgx.reply_photo(
-    "https://telegra.ph/file/a0472a37024a82cbc2ac0.jpg",
+    "https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
     reply_markup=JoinButtlock,
     caption=f"""
 📌I Am 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿 that can take any 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 link and send you its music in mere seconds.
