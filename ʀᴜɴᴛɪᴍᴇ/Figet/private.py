@@ -10,20 +10,12 @@ from youtube_dl import YoutubeDL
 import ffmpeg
 from ᴅᴍᴇʀᴇ import *
 
-DONOT = REGEX_EXCLUDE_URL = (
-    r"\/channel\/|\/playlist\?list=|&list=|\/sets\/"
-)
-SDEX = SOUNDCLOUD_REGEX_SITES = (
-    r"^((?:https?:)?\/\/)"
-    r"?((?:www|m)\.)"
-    r"?((?:|soundcloud\.com|))"
-    r"(\/)([-a-zA-Z0-9()@:%_\+.~#?&//=]*)([\w\-]+)(\S+)?$"
-)
+SDEX = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:|soundcloud\.com|))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$"
+
 
 @ɦʏքɛʋօɨɖֆօʊʟ.on_message(
 filters.private
-& filters.regex(SDEX)
-& ~filters.regex(DONOT))
+& filters.regex(SDEX))
 async def music_downloader(
     _,
     scund: Message):
