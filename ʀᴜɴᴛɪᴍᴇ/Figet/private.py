@@ -10,7 +10,7 @@ from youtube_dl import YoutubeDL
 import ffmpeg
 from ᴅᴍᴇʀᴇ import *
 
-SDEX = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:|soundcloud\.com|))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$"
+SDEX = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:|soundcloud\.com|))"
 
 
 @ɦʏքɛʋօɨɖֆօʊʟ.on_message(
