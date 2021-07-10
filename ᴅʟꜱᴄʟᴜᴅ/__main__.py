@@ -4,7 +4,7 @@ GLUU = dict(
     root="ʀᴜɴᴛɪᴍᴇ"
 )
 
-Client(
+Client = Client(
     "ɦʏքɛʋօɨɖֆօʊʟ",
     api_id=AP,
     api_hash=AH,
