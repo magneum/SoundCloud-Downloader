@@ -4,7 +4,7 @@ GLUU = dict(
     root="ʀᴜɴᴛɪᴍᴇ"
 )
 
-ɦʏքɛʋօɨɖֆօʊʟ = Client(
+Client(
     "ɦʏքɛʋօɨɖֆօʊʟ",
     api_id=AP,
     api_hash=AH,
@@ -12,10 +12,10 @@ GLUU = dict(
     workers=12,
     plugins=GLUU
 )
-ɦʏքɛʋօɨɖֆօʊʟ.start()
+Client.start()
 LOGS.info('🍁🎷一═デ🟠𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠デ═一\nONLINE🍁🎷\n')
 idle()
-ɦʏքɛʋօɨɖֆօʊʟ.stop()  
+Client.stop()  
 try:
     shutil.rmtree(K)
     shutil.rmtree(P)
