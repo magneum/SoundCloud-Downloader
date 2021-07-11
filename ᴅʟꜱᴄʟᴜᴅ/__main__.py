@@ -1,4 +1,16 @@
-from . import *
+from ꜰᴇᴛᴄʜ import *
+AP = SNDCLUDE.APP_ID
+AH = SNDCLUDE.API_HASH
+AB = SNDCLUDE.BOT_TOKEN
+from pyrogram import Client
+from pyrogram.methods.utilities import idle
+import shutil
+from logging import INFO, basicConfig, getLogger
+basicConfig(
+format="%(levelname)s - %(message)s",
+level=INFO)
+LOGS = getLogger(__name__)
+
 
 GLUU = dict(
     root="ʀᴜɴᴛɪᴍᴇ"
