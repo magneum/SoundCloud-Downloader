@@ -203,7 +203,7 @@ async def starts(_,𝗦𝗼𝘂𝗻𝗱: Message):
         [InlineKeyboardButton("⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",url="https://t.me/hypevoidlab")],
         [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
         [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
-        [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一",url="https://t.me/HvSoundCloudBot")]]))
+        [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿",url="https://t.me/HvSoundCloudBot")]]))
         return StopPropagation
     except Exception as e:
         if HEROKU == "HEROKU":
@@ -337,12 +337,12 @@ async def Started(𝗦𝗼𝘂𝗻𝗱: Message):
     except:
         pass
 
-    url = await 𝗦𝗼𝘂𝗻𝗱.text.strip()
+    url = 𝗦𝗼𝘂𝗻𝗱.text.strip()
     try:
         title, thumbnail_url, formats = ask_link_info(url)
         print(title, thumbnail_url, formats)
         now = datetime.now()
-        user_time[await 𝗦𝗼𝘂𝗻𝗱.chat.id] = now + \
+        user_time[𝗦𝗼𝘂𝗻𝗱.chat.id] = now + \
                                      timedelta(minutes=youtube_next_fetch)
     except Exception:
         NO = await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
@@ -360,7 +360,7 @@ async def Started(𝗦𝗼𝘂𝗻𝗱: Message):
 
 
 
-    Audio_Hole = HV_SoundCloud_Audio.extract_info(await 𝗦𝗼𝘂𝗻𝗱.text,download=False)
+    Audio_Hole = HV_SoundCloud_Audio.extract_info(𝗦𝗼𝘂𝗻𝗱.text,download=False)
     if Audio_Hole['duration'] > 600:
         await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
         photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
@@ -442,7 +442,7 @@ async def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):
         [InlineKeyboardButton("⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",url="https://t.me/hypevoidlab")],
         [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
         [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
-        [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一",url="https://t.me/HvSoundCloudBot")]]),
+        [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿",url="https://t.me/HvSoundCloudBot")]]),
         caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
