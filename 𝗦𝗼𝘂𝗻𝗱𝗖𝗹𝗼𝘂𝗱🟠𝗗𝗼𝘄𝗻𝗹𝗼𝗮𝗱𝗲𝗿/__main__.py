@@ -162,8 +162,6 @@ has been licensed under GNU General Public License                              
 scound_opts = {
 "format": "bestaudio",
 "outtmpl": "%(title)s - %(extractor)s-%(id)s.%(ext)s",
-"no_warnings": True,
-"ignoreerrors": True,
 "writethumbnail": True}
 HV_SoundCloud_Audio = YoutubeDL(scound_opts)
 "|"
