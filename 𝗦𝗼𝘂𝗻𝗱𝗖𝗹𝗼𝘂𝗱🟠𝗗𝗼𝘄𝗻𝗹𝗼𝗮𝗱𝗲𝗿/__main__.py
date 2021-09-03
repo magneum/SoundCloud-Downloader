@@ -35,7 +35,7 @@ from youtube_dl import YoutubeDL
 from urllib.parse import urlparse
 from datetime import datetime, timedelta
 from pyrogram import Client, filters, StopPropagation,idle
-from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton,Message
+from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton
 "|"
 "|"
 "|"
@@ -184,10 +184,10 @@ has been licensed under GNU General Public License                              
 "|"
 @𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.on_message(filters.private
 & filters.command("start",prefixes="/")) 
-async def starts(_,Message: Message):
+def starts(_,message):
     try:
-        await Message.delete()
-        await Message.reply_photo(
+        message.delete()
+        message.reply_photo(
         photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
         caption=f"""
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
@@ -232,14 +232,15 @@ has been licensed under GNU General Public License                              
 filters.incoming
 & ~filters.edited
 & filters.regex(do_not_allow_regex))
-async def just_deny_that(_,Message: Message):
+def just_deny_that(_,message):
     try:
-        await Message.delete()
-        await Message.reply_photo(photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
+        message.delete()
+        message.reply_photo(photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
             caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
-⚠️  **This Bot will never let users download any playlists any sooner**""")
+⚠️  **This Bot will never let users download any playlists any sooner**"""
+)
         return
     except Exception as e:
         if HEROKU == "HEROKU":
@@ -268,15 +269,10 @@ has been licensed under GNU General Public License                              
 filters.incoming
 & ~filters.edited
 & filters.regex(allow_regex))  
-async def popup_(client,Message):
-    try:
-        await Message.reply_chat_action("playing")
-        await Started(Message)
-    except Exception as e:
-        if HEROKU == "HEROKU":
-            LOGS.info(str(e))
-        else:
-            cprint(e,"red")
+def popup_(client,message):
+    message.reply_chat_action("playing")
+    Started(message)
+
 "|"
 "|"
 "|"
@@ -295,37 +291,21 @@ has been licensed under GNU General Public License                              
 "|"
 "|"
 "|"
-async def Started(Message):
-    userLastDownloadTime = user_time.get(Message.chat.id)
-    if userLastDownloadTime > datetime.now():
-        wait_time = round((userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
-        NO = await Message.reply_text(f"⁉️ Wait __{wait_time * 60}__ seconds before next Request ⁉️")
-        await asyncio.sleep(1)
-        await NO.delete()
-        return
-    now = datetime.now()
-    user_time[Message.chat.id] = now + \
-                                timedelta(minutes=youtube_next_fetch)
-    try:
-        Audio_Hole = HV_SoundCloud_Audio.extract_info(Message.text,download=False)
-        if Audio_Hole['duration'] > 3600:
-            await Message.reply_photo(
-            photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
-            caption=f"""
+def Started(message):
+    Audio_Hole = HV_SoundCloud_Audio.extract_info(message.text,download=False)
+    if Audio_Hole['duration'] > 600:
+        message.reply_photo(
+        photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
+        caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
-⚠️  **Telegram Does not allow users to download media size bigger then 2000mb!**
-⚠️  **Please try less then 60min of Audio...**
-""")
-            return
-        HV_SoundCloud_Audio.process_info(Audio_Hole)
-        audio_file = HV_SoundCloud_Audio.prepare_filename(Audio_Hole)
-        await audio_sender(Message, Audio_Hole,audio_file)
-    except Exception as e:
-        if HEROKU == "HEROKU":
-            LOGS.info(str(e))
-        else:
-            cprint(e,"red")
+⚠️  **Please try less then 10min of Audio...**
+"""
+)
+        return
+    HV_SoundCloud_Audio.process_info(Audio_Hole)
+    audio_file = HV_SoundCloud_Audio.prepare_filename(Audio_Hole)
+    audio_sender(message, Audio_Hole,audio_file)
 "|"
 "|"
 "|"
@@ -344,37 +324,36 @@ has been licensed under GNU General Public License                              
 "|"
 "|"
 "|"
-async def audio_sender(Message: Message,Audio_Hole,audio_file):   
-    try:
-        await Message.reply_chat_action("record_video")
-        basename = audio_file.rsplit(".", 1)[-2]
-        if Audio_Hole["ext"] == "webm":
-            audio_file_opus = basename + ".opus"
-            ffmpeg.input(audio_file).output(audio_file_opus, codec="copy").run()
-            os.remove(audio_file)
-            audio_file = audio_file_opus
-        thumbnail_url = Audio_Hole["thumbnail"]
-        if os.path.isfile(basename + ".jpg"):
-            Master_Thumb = basename + ".jpg"
-        else:
-            Master_Thumb = basename + "." + \
-                file_url(thumbnail_url)
-        resized_thumb = basename + "_reshpedSQ.jpg"
-        Shape_It_To_Square(Master_Thumb, resized_thumb)
-        webpage_url = Audio_Hole['webpage_url']
-        title = Audio_Hole["title"]
-        duration = int(float(Audio_Hole["duration"]))
-        performer = Audio_Hole["uploader"]
-        if os.path.isfile(basename + ".jpg"):
-            SQ_Thumb = basename + ".jpg"
-        else:
-            SQ_Thumb = basename + "." + \
-                file_url(thumbnail_url)
-        Squared_Thumb = basename + "_nonreshpedSQQ.jpg"
-        Shape_It_To_Square(SQ_Thumb, Squared_Thumb)
-        void = await Message.reply_photo(
-            Squared_Thumb,
-            caption=f"""
+def audio_sender(message,Audio_Hole,audio_file):   
+    message.reply_chat_action("record_video")
+    basename = audio_file.rsplit(".", 1)[-2]
+    if Audio_Hole["ext"] == "webm":
+        audio_file_opus = basename + ".opus"
+        ffmpeg.input(audio_file).output(audio_file_opus, codec="copy").run()
+        os.remove(audio_file)
+        audio_file = audio_file_opus
+    thumbnail_url = Audio_Hole["thumbnail"]
+    if os.path.isfile(basename + ".jpg"):
+        Master_Thumb = basename + ".jpg"
+    else:
+        Master_Thumb = basename + "." + \
+            file_url(thumbnail_url)
+    resized_thumb = basename + "_reshpedSQ.jpg"
+    Shape_It_To_Square(Master_Thumb, resized_thumb)
+    webpage_url = Audio_Hole['webpage_url']
+    title = Audio_Hole["title"]
+    duration = int(float(Audio_Hole["duration"]))
+    performer = Audio_Hole["uploader"]
+    if os.path.isfile(basename + ".jpg"):
+        SQ_Thumb = basename + ".jpg"
+    else:
+        SQ_Thumb = basename + "." + \
+            file_url(thumbnail_url)
+    Squared_Thumb = basename + "_nonreshpedSQQ.jpg"
+    Shape_It_To_Square(SQ_Thumb, Squared_Thumb)
+    void = message.reply_photo(
+        Squared_Thumb,
+        caption=f"""
 ✨🤩 𝙽𝚒𝚌𝚎 𝚌𝚑𝚘𝚒𝚌𝚎! 🤩✨ 
 🛒𝚈𝚘𝚞𝚛 𝙰𝚞𝚍𝚒𝚘 𝚏𝚒𝚕𝚎 𝚠𝚒𝚕𝚕 𝚋𝚎 𝚑𝚎𝚛𝚎 𝚜𝚑𝚘𝚛𝚝𝚕𝚢
 
@@ -386,17 +365,17 @@ async def audio_sender(Message: Message,Audio_Hole,audio_file):
 
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 """,
-            parse_mode='markdown'
-            )
-        await Message.reply_audio(
-            audio_file,
-            reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩",url="https://t.me/hypevoids")],
-            [InlineKeyboardButton("⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",url="https://t.me/hypevoidlab")],
-            [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
-            [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
-            [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一",url="https://t.me/HvSoundCloudBot")]]),
-            caption=f"""
+        parse_mode='markdown'
+        )
+    message.reply_audio(
+        audio_file,
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩",url="https://t.me/hypevoids")],
+        [InlineKeyboardButton("⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",url="https://t.me/hypevoidlab")],
+        [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
+        [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
+        [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一",url="https://t.me/HvSoundCloudBot")]]),
+        caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
 🏷**ᴛɪᴛʟᴇ:**  __**{title}**__
@@ -405,25 +384,20 @@ async def audio_sender(Message: Message,Audio_Hole,audio_file):
 ⌛️**ᴅᴜʀᴀᴛɪᴏɴ:**  [{duration}s](https://t.me/hypevoidlab)
 📡**ʟɪɴᴋ:**  __{webpage_url}__
 """,
-            thumb=resized_thumb)
-        await void.delete()
-        try:
-            os.remove(audio_file)
-            os.remove(Master_Thumb)
-            os.remove(resized_thumb)
-            os.remove(Squared_Thumb) 
-        except Exception as e:
-            if HEROKU == "HEROKU":
-                LOGS.info(str(e))
-            else:
-                cprint(e,"cyan")
-            pass 
-        return StopPropagation 
+        thumb=resized_thumb)
+    void.delete()
+    try:
+        os.remove(audio_file)
+        os.remove(Master_Thumb)
+        os.remove(resized_thumb)
+        os.remove(Squared_Thumb) 
     except Exception as e:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"red")
+            cprint(e,"cyan")
+        pass 
+    return StopPropagation 
 "|"
 "|"
 "|"
