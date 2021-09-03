@@ -60,11 +60,11 @@ HEROKU = getenv("HEROKU", None)
 BFS = 64 * 1024
 CODE = getenv("CODE", None)
 HPCD = getenv("HEROKU", None)
-load_dotenv("./𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.env")
-do_not_allow_regex = REGEX_EXCLUDE_URL = (
+load_dotenv("./𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.env")
+do_not_allow_regex = (
     r"\/channel\/|\/playlist\?list=|&list=|\/sets\/"
 )
-allow_regex = SOUNDCLOUD_REGEX_SITES = (
+allow_regex = (
     r"^((?:https?:)?\/\/)"
     r"?((?:www|m)\.)"
     r"?((?:|soundcloud\.com|))"
@@ -292,14 +292,17 @@ has been licensed under GNU General Public License                              
 "|"
 "|"
 "|"
-#"https://telegra.ph/file/2752e78446fe4e63a7182.jpg"
-# [ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best
+# VOIDED = YouTube_Opts = {
+# 'format': 'bestaudio',
+# 'outtmpl': '%(title)s - %(extractor)s-%(id)s.%(ext)s',
+# "no_warnings": True,
+# "ignoreerrors": True,
+# 'writethumbnail': True
+# }
 VOIDED = YouTube_Opts = {
-'format': "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
-'outtmpl': '%(title)s - %(extractor)s-%(id)s.%(ext)s',
-"no_warnings": True,
-"ignoreerrors": True,
-'writethumbnail': True}
+"format":"bestaudio",
+"outtmpl": "%(title)s - %(extractor)s-%(id)s.%(ext)s",
+"writethumbnail": True}
 HV_YouTube_Audio = YoutubeDL(VOIDED)
 "|"
 "|"
