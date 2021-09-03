@@ -184,10 +184,10 @@ has been licensed under GNU General Public License                              
 "|"
 @𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.on_message(filters.private
 & filters.command("start",prefixes="/")) 
-def starts(_,𝗦𝗼𝘂𝗻𝗱: Message):
+async def starts(_,𝗦𝗼𝘂𝗻𝗱: Message):
     try:
-        𝗦𝗼𝘂𝗻𝗱.delete()
-        𝗦𝗼𝘂𝗻𝗱.reply_photo(
+        await 𝗦𝗼𝘂𝗻𝗱.delete()
+        await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
         photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
         caption=f"""
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
@@ -232,10 +232,10 @@ has been licensed under GNU General Public License                              
 filters.incoming
 & ~filters.edited
 & filters.regex(do_not_allow_regex))
-def just_deny_that(_,𝗦𝗼𝘂𝗻𝗱: Message):
+async def just_deny_that(_,𝗦𝗼𝘂𝗻𝗱: Message):
     try:
-        𝗦𝗼𝘂𝗻𝗱.delete()
-        𝗦𝗼𝘂𝗻𝗱.reply_photo(photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
+        await 𝗦𝗼𝘂𝗻𝗱.delete()
+        await 𝗦𝗼𝘂𝗻𝗱.reply_photo(photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
             caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
@@ -269,9 +269,9 @@ has been licensed under GNU General Public License                              
 filters.incoming
 & ~filters.edited
 & filters.regex(allow_regex))  
-def popup_(client,𝗦𝗼𝘂𝗻𝗱: Message):
-    𝗦𝗼𝘂𝗻𝗱.delete()
-    𝗦𝗼𝘂𝗻𝗱.reply_chat_action("playing")
+async def popup_(client,𝗦𝗼𝘂𝗻𝗱: Message):
+    await 𝗦𝗼𝘂𝗻𝗱.delete()
+    await 𝗦𝗼𝘂𝗻𝗱.reply_chat_action("playing")
     Started(𝗦𝗼𝘂𝗻𝗱)
 
 "|"
@@ -325,27 +325,27 @@ has been licensed under GNU General Public License                              
 "|"
 "|"
 "|"
-def Started(𝗦𝗼𝘂𝗻𝗱: Message):
+async def Started(𝗦𝗼𝘂𝗻𝗱: Message):
     userLastDownloadTime = user_time.get(𝗦𝗼𝘂𝗻𝗱.chat.id)
     try:
         if userLastDownloadTime > datetime.now():
             wait_time = round((userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
-            NO = 𝗦𝗼𝘂𝗻𝗱.reply_text(f"Wait {wait_time * 60} seconds before next Request")
+            NO = await 𝗦𝗼𝘂𝗻𝗱.reply_text(f"Wait {wait_time * 60} seconds before next Request")
             asyncio.sleep(1)
             NO.delete()
             return
     except:
         pass
 
-    url = 𝗦𝗼𝘂𝗻𝗱.text.strip()
+    url = await 𝗦𝗼𝘂𝗻𝗱.text.strip()
     try:
         title, thumbnail_url, formats = ask_link_info(url)
         print(title, thumbnail_url, formats)
         now = datetime.now()
-        user_time[𝗦𝗼𝘂𝗻𝗱.chat.id] = now + \
+        user_time[await 𝗦𝗼𝘂𝗻𝗱.chat.id] = now + \
                                      timedelta(minutes=youtube_next_fetch)
     except Exception:
-        NO = 𝗦𝗼𝘂𝗻𝗱.reply_photo(
+        NO = await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
         photo="https://telegra.ph/file/afbe2788479c6d7a30678.jpg",
         caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
@@ -354,15 +354,15 @@ def Started(𝗦𝗼𝘂𝗻𝗱: Message):
 
 """
 )       
-        asyncio.sleep(2)
-        NO.delete()
+        await asyncio.sleep(2)
+        await NO.delete()
         return
 
 
 
-    Audio_Hole = HV_SoundCloud_Audio.extract_info(𝗦𝗼𝘂𝗻𝗱.text,download=False)
+    Audio_Hole = HV_SoundCloud_Audio.extract_info(await 𝗦𝗼𝘂𝗻𝗱.text,download=False)
     if Audio_Hole['duration'] > 600:
-        𝗦𝗼𝘂𝗻𝗱.reply_photo(
+        await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
         photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
         caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
@@ -373,7 +373,8 @@ def Started(𝗦𝗼𝘂𝗻𝗱: Message):
         return
     HV_SoundCloud_Audio.process_info(Audio_Hole)
     audio_file = HV_SoundCloud_Audio.prepare_filename(Audio_Hole)
-    audio_sender(𝗦𝗼𝘂𝗻𝗱, Audio_Hole,audio_file)
+    await audio_sender(𝗦𝗼𝘂𝗻𝗱, Audio_Hole,audio_file)
+    await 𝗦𝗼𝘂𝗻𝗱.reply_chat_action("record_video")
 "|"
 "|"
 "|"
@@ -392,8 +393,7 @@ has been licensed under GNU General Public License                              
 "|"
 "|"
 "|"
-def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):   
-    𝗦𝗼𝘂𝗻𝗱.reply_chat_action("record_video")
+async def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):   
     basename = audio_file.rsplit(".", 1)[-2]
     if Audio_Hole["ext"] == "webm":
         audio_file_opus = basename + ".opus"
@@ -419,7 +419,7 @@ def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):
             file_url(thumbnail_url)
     Squared_Thumb = basename + "_nonreshpedSQQ.jpg"
     Shape_It_To_Square(SQ_Thumb, Squared_Thumb)
-    void = 𝗦𝗼𝘂𝗻𝗱.reply_photo(
+    void = await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
         Squared_Thumb,
         caption=f"""
 ✨🤩 𝙽𝚒𝚌𝚎 𝚌𝚑𝚘𝚒𝚌𝚎! 🤩✨ 
@@ -435,7 +435,7 @@ def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):
 """,
         parse_mode='markdown'
         )
-    𝗦𝗼𝘂𝗻𝗱.reply_audio(
+    await 𝗦𝗼𝘂𝗻𝗱.reply_audio(
         audio_file,
         reply_markup=InlineKeyboardMarkup([
         [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩",url="https://t.me/hypevoids")],
