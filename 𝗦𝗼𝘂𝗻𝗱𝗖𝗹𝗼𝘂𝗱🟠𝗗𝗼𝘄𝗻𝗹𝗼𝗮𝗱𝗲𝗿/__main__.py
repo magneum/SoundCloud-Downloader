@@ -194,15 +194,15 @@ def starts(_,𝗦𝗼𝘂𝗻𝗱: Message):
 
     📌I Am 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 that can take any youtube audio 
     link and send you its music in mere seconds.
-    📌Just send me the 𝐘𝐨𝐮𝐓𝐮𝐛𝐞 audio link and wait.
+    📌Just send me the 𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱 audio link and wait.
 
     ⚠️  **ONLY AUDIO! Check below button for VIDEO**
     """,
         reply_markup=InlineKeyboardMarkup([
         [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩",url="https://t.me/hypevoids")],
         [InlineKeyboardButton("⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",url="https://t.me/hypevoidlab")],
-        [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
-        [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
+        [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
+        [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
         [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一",url="https://t.me/HvSoundCloudBot")]]))
         return StopPropagation
     except Exception as e:
@@ -292,7 +292,74 @@ has been licensed under GNU General Public License                              
 "|"
 "|"
 "|"
+def ask_link_info(yturl):
+    ydl = youtube_dl.YoutubeDL()
+    with ydl:
+        qualityList = []
+        reck = ydl.extract_info(yturl, download=False)
+        for format in reck['formats']:
+            if not "dash" in str(format['format']).lower():
+                qualityList.append(
+                {
+                    "format": format['format'],
+                    "filesize": format['filesize'],
+                    "format_id": format['format_id'],
+                    "yturl": yturl
+                })
+        return reck['title'], reck['thumbnail'], qualityList
+"|"
+"|"
+"|"
+"|"
+"""=================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一==========================================================================
+GNU GENERAL PUBLIC LICENSE                                                                                                                      GNU GENERAL PUBLIC LICENSE                                                                               
+    Version 3, 29 June 2007                                                                                                                     Version 3, 29 June 2007
+Copyright (C) 2007 Free Software Foundation                                                                                  Copyright (C) 2007 Free Software Foundation
+Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶𝗯𝘂𝘁𝗲 verbatim copies                                                       Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶𝗯𝘂𝘁𝗲 verbatim copies                                                                      
+of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
+    一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
+has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
+"|"
+"|"
+"|"
+"|"
 def Started(𝗦𝗼𝘂𝗻𝗱: Message):
+    userLastDownloadTime = user_time.get(𝗦𝗼𝘂𝗻𝗱.chat.id)
+    try:
+        if userLastDownloadTime > datetime.now():
+            wait_time = round((userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
+            NO = 𝗦𝗼𝘂𝗻𝗱.reply_text(f"Wait {wait_time * 60} seconds before next Request")
+            asyncio.sleep(1)
+            NO.delete()
+            return
+    except:
+        pass
+
+    url = 𝗦𝗼𝘂𝗻𝗱.text.strip()
+    try:
+        title, thumbnail_url, formats = ask_link_info(url)
+        print(title, thumbnail_url, formats)
+        now = datetime.now()
+        user_time[𝗦𝗼𝘂𝗻𝗱.chat.id] = now + \
+                                     timedelta(minutes=youtube_next_fetch)
+    except Exception:
+        NO = 𝗦𝗼𝘂𝗻𝗱.reply_photo(
+        photo="https://telegra.ph/file/afbe2788479c6d7a30678.jpg",
+        caption=f"""
+一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
+
+⚠️  **Failed To Fetch 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 Data...**
+
+"""
+)       
+        asyncio.sleep(2)
+        NO.delete()
+        return
+
+
+
     Audio_Hole = HV_SoundCloud_Audio.extract_info(𝗦𝗼𝘂𝗻𝗱.text,download=False)
     if Audio_Hole['duration'] > 600:
         𝗦𝗼𝘂𝗻𝗱.reply_photo(
@@ -373,8 +440,8 @@ def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):
         reply_markup=InlineKeyboardMarkup([
         [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩",url="https://t.me/hypevoids")],
         [InlineKeyboardButton("⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",url="https://t.me/hypevoidlab")],
-        [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
-        [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
+        [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
+        [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
         [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一",url="https://t.me/HvSoundCloudBot")]]),
         caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
