@@ -416,7 +416,7 @@ async def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):
 📡**ʟɪɴᴋ:**  __{webpage_url}__
 """,
         thumb=resized_thumb)
-    void.delete()
+    await void.delete()
     try:
         os.remove(audio_file)
         os.remove(Master_Thumb)
