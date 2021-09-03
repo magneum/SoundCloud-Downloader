@@ -298,8 +298,8 @@ async def Started(𝗦𝗼𝘂𝗻𝗱: Message):
         if userLastDownloadTime > datetime.now():
             wait_time = round((userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
             NO = await 𝗦𝗼𝘂𝗻𝗱.reply_text(f"Wait {wait_time * 60} seconds before next Request")
-            asyncio.sleep(1)
-            NO.delete()
+            await asyncio.sleep(1)
+            await NO.delete()
             return
     except:
         pass
