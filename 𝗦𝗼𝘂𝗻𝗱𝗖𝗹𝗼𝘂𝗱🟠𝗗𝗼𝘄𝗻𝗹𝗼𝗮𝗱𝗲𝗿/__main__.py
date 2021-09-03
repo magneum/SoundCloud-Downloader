@@ -238,9 +238,9 @@ try:
             await Message.delete()
             await Message.reply_photo(photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
                 caption=f"""
-        一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
+一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
 
-        ⚠️  **This Bot will never let users download any playlists any sooner**""")
+⚠️  **This Bot will never let users download any playlists any sooner**""")
             return
         except Exception as e:
             if HEROKU == "HEROKU":
@@ -282,20 +282,6 @@ try:
                     return
             except:
                 pass
-            try:
-                now = datetime.now()
-                user_time[Message.chat.id] = now + \
-                                            timedelta(minutes=youtube_next_fetch)
-            except Exception:
-                NO = await Message.reply_photo(
-                photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
-                caption=f"""
-        一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
-
-        ⚠️  **Failed To Fetch 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 Data...**""")       
-                await asyncio.sleep(2)
-                await NO.delete()
-                return
             await Message.reply_chat_action("playing")
             await Started(Message)
         except Exception as e:
@@ -323,15 +309,29 @@ try:
     "|"
     async def Started(Message):
         try:
+            now = datetime.now()
+            user_time[Message.chat.id] = now + \
+                                        timedelta(minutes=youtube_next_fetch)
+        except Exception:
+            NO = await Message.reply_photo(
+            photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
+            caption=f"""
+一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
+
+⚠️  **Failed To Fetch 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 Data...**""")       
+            await asyncio.sleep(2)
+            await NO.delete()
+            return
+        try:
             Audio_Hole = HV_SoundCloud_Audio.extract_info(Message.text,download=False)
             if Audio_Hole['duration'] > 3600:
                 await Message.reply_photo(
                 photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
                 caption=f"""
-        一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
+一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
 
-        ⚠️  **Telegram Does not allow users to download media size bigger then 2000mb!**
-        ⚠️  **Please try less then 60min of Audio...**""")
+⚠️  **Telegram Does not allow users to download media size bigger then 2000mb!**
+⚠️  **Please try less then 60min of Audio...**""")
                 return
             HV_SoundCloud_Audio.process_info(Audio_Hole)
             audio_file = HV_SoundCloud_Audio.prepare_filename(Audio_Hole)
@@ -390,17 +390,17 @@ try:
             void = await Message.reply_photo(
                 Squared_Thumb,
                 caption=f"""
-            ✨🤩 𝙽𝚒𝚌𝚎 𝚌𝚑𝚘𝚒𝚌𝚎! 🤩✨ 
-        🛒𝚈𝚘𝚞𝚛 𝙰𝚞𝚍𝚒𝚘 𝚏𝚒𝚕𝚎 𝚠𝚒𝚕𝚕 𝚋𝚎 𝚑𝚎𝚛𝚎 𝚜𝚑𝚘𝚛𝚝𝚕𝚢
+    ✨🤩 𝙽𝚒𝚌𝚎 𝚌𝚑𝚘𝚒𝚌𝚎! 🤩✨ 
+🛒𝚈𝚘𝚞𝚛 𝙰𝚞𝚍𝚒𝚘 𝚏𝚒𝚕𝚎 𝚠𝚒𝚕𝚕 𝚋𝚎 𝚑𝚎𝚛𝚎 𝚜𝚑𝚘𝚛𝚝𝚕𝚢
 
-        🏷**ᴛɪᴛʟᴇ:**  __**{title}**__
-        🎬**ꜱɪᴛᴇ:**  [𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱](https://youtube.com)
-        💰**ᴘᴇʀꜰᴏʀᴍᴇʀ:**  [{performer}](https://t.me/hypevoidlab)
-        ⌛️**ᴅᴜʀᴀᴛɪᴏɴ:**  [{duration}s](https://t.me/hypevoidlab)
-        📡**ʟɪɴᴋ:**  __{webpage_url}__
+🏷**ᴛɪᴛʟᴇ:**  __**{title}**__
+🎬**ꜱɪᴛᴇ:**  [𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱](https://youtube.com)
+💰**ᴘᴇʀꜰᴏʀᴍᴇʀ:**  [{performer}](https://t.me/hypevoidlab)
+⌛️**ᴅᴜʀᴀᴛɪᴏɴ:**  [{duration}s](https://t.me/hypevoidlab)
+📡**ʟɪɴᴋ:**  __{webpage_url}__
 
-        一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
-        """,
+一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
+""",
                 parse_mode='markdown'
                 )
             await Message.reply_audio(
@@ -412,14 +412,14 @@ try:
                 [InlineKeyboardButton("𝐘𝐨𝐮𝐓𝐮𝐛𝐞⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
                 [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一",url="https://t.me/HvSoundCloudBot")]]),
                 caption=f"""
-        一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
+一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿🟠一
 
-        🏷**ᴛɪᴛʟᴇ:**  __**{title}**__
-        🎬**ꜱɪᴛᴇ:**  [𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱](https://youtube.com)
-        💰**ᴘᴇʀꜰᴏʀᴍᴇʀ:**  [{performer}](https://t.me/hypevoidlab)
-        ⌛️**ᴅᴜʀᴀᴛɪᴏɴ:**  [{duration}s](https://t.me/hypevoidlab)
-        📡**ʟɪɴᴋ:**  __{webpage_url}__
-        """,
+🏷**ᴛɪᴛʟᴇ:**  __**{title}**__
+🎬**ꜱɪᴛᴇ:**  [𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱](https://youtube.com)
+💰**ᴘᴇʀꜰᴏʀᴍᴇʀ:**  [{performer}](https://t.me/hypevoidlab)
+⌛️**ᴅᴜʀᴀᴛɪᴏɴ:**  [{duration}s](https://t.me/hypevoidlab)
+📡**ʟɪɴᴋ:**  __{webpage_url}__
+""",
                 thumb=resized_thumb)
             await void.delete()
             try:
