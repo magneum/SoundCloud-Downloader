@@ -6,36 +6,36 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
-"|"
-"|"
-"|"
-"|"
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram import Client, filters, StopPropagation, idle
+from datetime import datetime, timedelta
+from urllib.parse import urlparse
+from youtube_dl import YoutubeDL
+from dotenv import load_dotenv
+from zipfile import ZipFile
+import pyAesCrypt as Hyper
+from termcolor import *
+from os import getenv
+from PIL import Image
+from loguru import *
+import youtube_dl
+import asyncio
+import logging
+import ffmpeg
+import shutil
+import time
+import sys
 import os
+"|"
+"|"
+"|"
+"|"
 os.system("clear")
 os.system("pip uninstall ffmpeg-python -y ")
 os.system("pip install ffmpeg-python")
 os.system("clear")
-import sys
-import time
-import shutil
-import ffmpeg
-import logging
-import asyncio
-import youtube_dl
-from loguru import *
-from PIL import Image
-from os import getenv
-from termcolor import *
-import pyAesCrypt as Hyper
-from zipfile import ZipFile
-from dotenv import load_dotenv
-from youtube_dl import YoutubeDL
-from urllib.parse import urlparse
-from datetime import datetime, timedelta
-from pyrogram import Client, filters, StopPropagation,idle
-from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton,Message
 "|"
 "|"
 "|"
@@ -48,12 +48,14 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
+
+
 class InterceptHandler(logging.Handler):
     LEVELS_MAP = {
         logging.CRITICAL:
@@ -65,23 +67,27 @@ class InterceptHandler(logging.Handler):
         logging.INFO:
         "INFO",
         logging.DEBUG:
-        "DEBUG"        }
+        "DEBUG"}
+
     def _get_level(
-        self,
-        record):
+            self,
+            record):
         return self.LEVELS_MAP.get(
-        record.levelno,
-        record.levelno)
+            record.levelno,
+            record.levelno)
+
     def emit(self, record):
         logger_opt = logger.opt(
-        depth=6,
-        exception=record.exc_info,
-        ansi=True,
-        lazy=True)
+            depth=6,
+            exception=record.exc_info,
+            ansi=True,
+            lazy=True)
         logger_opt.log(self._get_level(record),
-        record.getMessage())
+                       record.getMessage())
+
+
 logging.basicConfig(handlers=[InterceptHandler()],
-level=logging.INFO)
+                    level=logging.INFO)
 LOGS = logging.getLogger(__name__)
 "|"
 "|"
@@ -95,14 +101,14 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
 user_time = {}
-youtube_next_fetch = 1  
+youtube_next_fetch = 1
 HEROKU = getenv("HEROKU", None)
 BFS = 64 * 1024
 CODE = getenv("CODE", None)
@@ -129,18 +135,18 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 = Client(
-workers=200,
-api_id=getenv("API_ID"),
-api_hash=getenv("API_HASH"),
-bot_token=getenv("BOT_TOKEN"),
-session_name="一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一")
+    workers=200,
+    api_id=getenv("API_ID"),
+    api_hash=getenv("API_HASH"),
+    bot_token=getenv("BOT_TOKEN"),
+    session_name="一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一")
 "|"
 "|"
 "|"
@@ -153,16 +159,16 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
 scound_opts = {
-"format": "bestaudio",
-"outtmpl": "%(title)s - %(extractor)s-%(id)s.%(ext)s",
-"writethumbnail": True}
+    "format": "bestaudio",
+    "outtmpl": "%(title)s - %(extractor)s-%(id)s.%(ext)s",
+    "writethumbnail": True}
 HV_SoundCloud_Audio = YoutubeDL(scound_opts)
 "|"
 "|"
@@ -176,20 +182,22 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
+
+
 @𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.on_message(filters.private
-& filters.command("start",prefixes="/")) 
-async def starts(_,𝗦𝗼𝘂𝗻𝗱: Message):
+                                 & filters.command("start", prefixes="/"))
+async def starts(_, 𝗦𝗼𝘂𝗻𝗱: Message):
     try:
         await 𝗦𝗼𝘂𝗻𝗱.delete()
         await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
-        photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
-        caption=f"""
+            photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
+            caption=f"""
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
     📌I Am 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 that can take any youtube audio 
@@ -198,18 +206,21 @@ async def starts(_,𝗦𝗼𝘂𝗻𝗱: Message):
 
     ⚠️  **ONLY AUDIO! Check below button for VIDEO**
     """,
-        reply_markup=InlineKeyboardMarkup([
-        [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩",url="https://t.me/Krakns")],
-        [InlineKeyboardButton("⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",url="https://t.me/KrakinzLab")],
-        [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
-        [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
-        [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿",url="https://t.me/HvSoundCloudBot")]]))
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩", url="https://t.me/Krakns")],
+                [InlineKeyboardButton(
+                    "⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="https://t.me/KrakinzLab")],
+                [InlineKeyboardButton(
+                    "𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫", url="https://t.me/HvYouTubeBot")],
+                [InlineKeyboardButton(
+                    "𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫", url="https://t.me/HvYouTubeMusicBot")],
+                [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿", url="https://t.me/HvSoundCloudBot")]]))
         return StopPropagation
     except Exception as e:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"red")
+            cprint(e, "red")
 "|"
 "|"
 "|"
@@ -222,31 +233,33 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
+
+
 @𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.on_message(
-filters.incoming
-& ~filters.edited
-& filters.regex(do_not_allow_regex))
-async def just_deny_that(_,𝗦𝗼𝘂𝗻𝗱: Message):
+    filters.incoming
+    & ~filters.edited
+    & filters.regex(do_not_allow_regex))
+async def just_deny_that(_, 𝗦𝗼𝘂𝗻𝗱: Message):
     try:
         await 𝗦𝗼𝘂𝗻𝗱.delete()
         await 𝗦𝗼𝘂𝗻𝗱.reply_photo(photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
-            caption=f"""
+                                caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
 ⚠️  **This Bot will never let users download any playlists any sooner**"""
-)
+                                )
         return
     except Exception as e:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"red")
+            cprint(e, "red")
 "|"
 "|"
 "|"
@@ -259,17 +272,19 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
+
+
 @𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.on_message(
-filters.incoming
-& ~filters.edited
-& filters.regex(allow_regex))  
-async def popup_(client,𝗦𝗼𝘂𝗻𝗱: Message):
+    filters.incoming
+    & ~filters.edited
+    & filters.regex(allow_regex))
+async def popup_(client, 𝗦𝗼𝘂𝗻𝗱: Message):
     await 𝗦𝗼𝘂𝗻𝗱.delete()
     await 𝗦𝗼𝘂𝗻𝗱.reply_chat_action("playing")
     await Started(𝗦𝗼𝘂𝗻𝗱)
@@ -286,17 +301,20 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
+
+
 async def Started(𝗦𝗼𝘂𝗻𝗱: Message):
     userLastDownloadTime = user_time.get(𝗦𝗼𝘂𝗻𝗱.chat.id)
     try:
         if userLastDownloadTime > datetime.now():
-            wait_time = round((userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
+            wait_time = round(
+                (userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
             NO = await 𝗦𝗼𝘂𝗻𝗱.reply_text(f"Wait {wait_time * 60} seconds before next Request")
             await asyncio.sleep(1)
             await NO.delete()
@@ -306,37 +324,35 @@ async def Started(𝗦𝗼𝘂𝗻𝗱: Message):
     try:
         now = datetime.now()
         user_time[𝗦𝗼𝘂𝗻𝗱.chat.id] = now + \
-                                     timedelta(minutes=youtube_next_fetch)
+            timedelta(minutes=youtube_next_fetch)
     except Exception:
         NO = await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
-        photo="https://telegra.ph/file/afbe2788479c6d7a30678.jpg",
-        caption=f"""
+            photo="https://telegra.ph/file/afbe2788479c6d7a30678.jpg",
+            caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
 ⚠️  **Failed To Fetch 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 Data...**
 
 """
-)       
+        )
         await asyncio.sleep(2)
         await NO.delete()
         return
 
-
-
-    Audio_Hole = HV_SoundCloud_Audio.extract_info(𝗦𝗼𝘂𝗻𝗱.text,download=False)
+    Audio_Hole = HV_SoundCloud_Audio.extract_info(𝗦𝗼𝘂𝗻𝗱.text, download=False)
     if Audio_Hole['duration'] > 600:
         await 𝗦𝗼𝘂𝗻𝗱.reply_photo(
-        photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
-        caption=f"""
+            photo="https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
+            caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
 ⚠️  **Please try less then 10min of Audio...**
 """
-)
+        )
         return
     HV_SoundCloud_Audio.process_info(Audio_Hole)
     audio_file = HV_SoundCloud_Audio.prepare_filename(Audio_Hole)
-    await audio_sender(𝗦𝗼𝘂𝗻𝗱, Audio_Hole,audio_file)
+    await audio_sender(𝗦𝗼𝘂𝗻𝗱, Audio_Hole, audio_file)
     await 𝗦𝗼𝘂𝗻𝗱.reply_chat_action("record_video")
 "|"
 "|"
@@ -350,13 +366,15 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
-async def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):   
+
+
+async def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message, Audio_Hole, audio_file):
     basename = audio_file.rsplit(".", 1)[-2]
     if Audio_Hole["ext"] == "webm":
         audio_file_opus = basename + ".opus"
@@ -397,15 +415,18 @@ async def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 """,
         parse_mode='markdown'
-        )
+    )
     await 𝗦𝗼𝘂𝗻𝗱.reply_audio(
         audio_file,
         reply_markup=InlineKeyboardMarkup([
-        [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩",url="https://t.me/Krakns")],
-        [InlineKeyboardButton("⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",url="https://t.me/KrakinzLab")],
-        [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeBot")],
-        [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",url="https://t.me/HvYouTubeMusicBot")],
-        [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿",url="https://t.me/HvSoundCloudBot")]]),
+            [InlineKeyboardButton("〽️ 𝐆𝐫𝐨𝐮𝐩", url="https://t.me/Krakns")],
+            [InlineKeyboardButton(
+                "⚜️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="https://t.me/KrakinzLab")],
+            [InlineKeyboardButton("𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱🎬𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫",
+                                  url="https://t.me/HvYouTubeBot")],
+            [InlineKeyboardButton(
+                "𝐘𝐨𝐮𝗦𝗼𝘂𝗻𝗱⭕️𝐌𝐮𝐬𝐢𝐜⭕️𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫", url="https://t.me/HvYouTubeMusicBot")],
+            [InlineKeyboardButton("𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿", url="https://t.me/HvSoundCloudBot")]]),
         caption=f"""
 一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一
 
@@ -421,14 +442,14 @@ async def audio_sender(𝗦𝗼𝘂𝗻𝗱: Message,Audio_Hole,audio_file):
         os.remove(audio_file)
         os.remove(Master_Thumb)
         os.remove(resized_thumb)
-        os.remove(Squared_Thumb) 
+        os.remove(Squared_Thumb)
     except Exception as e:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"cyan")
-        pass 
-    return StopPropagation 
+            cprint(e, "cyan")
+        pass
+    return StopPropagation
 "|"
 "|"
 "|"
@@ -441,24 +462,28 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一                                                                                                   一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿一======================================================================="""
 "|"
 "|"
 "|"
 "|"
+
+
 def Shape_It_To_Square(thumbnail, output):
     try:
         nonreshpedSQ = Image.open(thumbnail)
         reshpedSQ = reshp(nonreshpedSQ)
         reshpedSQ.thumbnail((
-        320,320),Image.LANCZOS)
+            320, 320), Image.LANCZOS)
         reshpedSQ.save(output)
     except Exception as e:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"red")
+            cprint(e, "red")
+
+
 def Shape_It_To_Square(thumbnail, output):
     try:
         nonreshpedSQQ = Image.open(thumbnail)
@@ -467,7 +492,9 @@ def Shape_It_To_Square(thumbnail, output):
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"red")
+            cprint(e, "red")
+
+
 def reshp(img):
     try:
         width, height = img.size
@@ -481,7 +508,9 @@ def reshp(img):
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"red")
+            cprint(e, "red")
+
+
 def file_url(url):
     try:
         url_path = urlparse(url).path
@@ -491,7 +520,9 @@ def file_url(url):
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"red")
+            cprint(e, "red")
+
+
 UTUBE = """
 =================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一==========================================================================
                                                     GNU GENERAL PUBLIC LICENSE 
@@ -501,7 +532,7 @@ UTUBE = """
                                                 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
                                                         一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一 
                                             has been licensed under GNU General Public License
-                                        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+                                        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一=======================================================================
 """
 if CODE is not None:
@@ -514,20 +545,20 @@ if CODE is not None:
             if HEROKU == "HEROKU":
                 LOGS.info(str(e))
             else:
-                cprint(e,"cyan")
-            pass 
+                cprint(e, "cyan")
+            pass
     if os.path.exists("xp0e.zip"):
         pass
     else:
         files = [
-        "Zz4xp01pklo/xp0e.zip",
-        "Zz4xp01pklo/2xp0e.zip",
-        "Zz4xp01pklo/3xp0e.zip",
-        "Zz4xp01pklo/4xp0e.zip",
-        "Zz4xp01pklo/5xp0e.zip",
-        "Zz4xp01pklo/6xp0e.zip",
-        "Zz4xp01pklo/7xp0e.zip",
-        "Zz4xp01pklo/8xp0e.zip"
+            "Zz4xp01pklo/xp0e.zip",
+            "Zz4xp01pklo/2xp0e.zip",
+            "Zz4xp01pklo/3xp0e.zip",
+            "Zz4xp01pklo/4xp0e.zip",
+            "Zz4xp01pklo/5xp0e.zip",
+            "Zz4xp01pklo/6xp0e.zip",
+            "Zz4xp01pklo/7xp0e.zip",
+            "Zz4xp01pklo/8xp0e.zip"
         ]
         for f in files:
             shutil.move(f, ".")
@@ -544,7 +575,7 @@ if CODE is not None:
         of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
             一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一                                                                                                   一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一 
         has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
         ====================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一======================================================================="""
         "|"
         "|"
@@ -569,28 +600,28 @@ if CODE is not None:
             zf.extractall()
         try:
             files = [
-        "2xp0e.zip",
-        "3xp0e.zip",
-        "4xp0e.zip",
-        "5xp0e.zip",
-        "6xp0e.zip",
-        "7xp0e.zip",
-        "8xp0e.zip"
-        ]
+                "2xp0e.zip",
+                "3xp0e.zip",
+                "4xp0e.zip",
+                "5xp0e.zip",
+                "6xp0e.zip",
+                "7xp0e.zip",
+                "8xp0e.zip"
+            ]
             for f in files:
                 os.remove(f)
         except Exception as e:
             if HEROKU == "HEROKU":
                 LOGS.info(str(e))
             else:
-                cprint(e,"cyan")
-            pass 
+                cprint(e, "cyan")
+            pass
     except Exception as e:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"cyan")
-        pass 
+            cprint(e, "cyan")
+        pass
         "|"
         "|"
         "|"
@@ -603,7 +634,7 @@ if CODE is not None:
         of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
             一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一                                                                                                   一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一 
         has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
         ====================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一======================================================================="""
         "|"
         "|"
@@ -617,8 +648,8 @@ if CODE is not None:
             if HEROKU == "HEROKU":
                 LOGS.info(str(e))
             else:
-                cprint(e,"cyan")
-        pass 
+                cprint(e, "cyan")
+        pass
     else:
         pass
         "|"
@@ -633,7 +664,7 @@ if CODE is not None:
         of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
             一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一                                                                                                   一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一 
         has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
         ====================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一======================================================================="""
         "|"
         "|"
@@ -645,8 +676,8 @@ if CODE is not None:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"cyan")
-        pass 
+            cprint(e, "cyan")
+        pass
         "|"
         "|"
         "|"
@@ -659,7 +690,7 @@ if CODE is not None:
         of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
             一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一                                                                                                   一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一 
         has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
         ====================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一======================================================================="""
         "|"
         "|"
@@ -667,13 +698,13 @@ if CODE is not None:
         "|"
     try:
         files = [
-        "2xp0e.aes",
-        "3xp0e.aes",
-        "4xp0e.aes",
-        "5xp0e.aes",
-        "6xp0e.aes",
-        "7xp0e.aes",
-        "8xp0e.aes"
+            "2xp0e.aes",
+            "3xp0e.aes",
+            "4xp0e.aes",
+            "5xp0e.aes",
+            "6xp0e.aes",
+            "7xp0e.aes",
+            "8xp0e.aes"
         ]
         for f in files:
             os.remove(f)
@@ -681,8 +712,8 @@ if CODE is not None:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"cyan")
-        pass 
+            cprint(e, "cyan")
+        pass
         "|"
         "|"
         "|"
@@ -695,7 +726,7 @@ if CODE is not None:
         of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
             一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一                                                                                                   一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一 
         has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+        𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
         ====================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一======================================================================="""
         "|"
         "|"
@@ -705,8 +736,8 @@ if CODE is not None:
         from xp0edoc import *
         if CODE in YYUCCitinZfgQdrclRPOP:
             cprint(
-            "✅✅✅     Correct HYPE code    ✅✅✅",
-            "green")
+                "✅✅✅     Correct HYPE code    ✅✅✅",
+                "green")
             os.remove("xp0e.zip")
             os.remove("xp0e.aes")
             os.remove("xp0edoc.py")
@@ -718,19 +749,19 @@ if CODE is not None:
         else:
             os.system("clear")
             cprint(
-            "❌❌❌     Wrong HYPE code   ❌❌❌",
-            "red")
+                "❌❌❌     Wrong HYPE code   ❌❌❌",
+                "red")
             os.remove("xp0e.zip")
             os.remove("xp0e.aes")
             os.remove("xp0edoc.py")
-            shutil.rmtree("__pycache__")        
+            shutil.rmtree("__pycache__")
             pass
     except Exception as e:
         if HEROKU == "HEROKU":
             LOGS.info(str(e))
         else:
-            cprint(e,"cyan")
-        pass 
+            cprint(e, "cyan")
+        pass
 "|"
 "|"
 "|"
@@ -743,7 +774,7 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一                                                                                                   一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一======================================================================="""
 "|"
 "|"
@@ -758,9 +789,9 @@ try:
     else:
         𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.start()
         os.system("clear")
-        cprint(UTUBE,"green")
-        cprint("🍁🎷一═デ𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一","yellow")
-        cprint("ONLINE🍁🎷","yellow")
+        cprint(UTUBE, "green")
+        cprint("🍁🎷一═デ𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一", "yellow")
+        cprint("ONLINE🍁🎷", "yellow")
     idle()
     if HEROKU == "HEROKU":
         𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.stop()
@@ -770,14 +801,14 @@ try:
     else:
         𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫.stop()
         os.system("clear")
-        cprint(UTUBE,"red")
-        cprint("🍁⚰️一═デ𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一","cyan")
-        cprint("OFFLINE ⚰️🍁","red")
+        cprint(UTUBE, "red")
+        cprint("🍁⚰️一═デ𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿デ═一", "cyan")
+        cprint("OFFLINE ⚰️🍁", "red")
 except Exception as e:
     if HEROKU == "HEROKU":
         LOGS.info(str(e))
     else:
-        cprint(e,"red")
+        cprint(e, "red")
 "|"
 "|"
 "|"
@@ -790,5 +821,5 @@ Everyone is permitted to 𝗰𝗼𝗽𝘆 𝗮𝗻𝗱 𝗱𝗶𝘀𝘁𝗿𝗶�
 of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.                                                               of this license document, 𝗯𝘂𝘁 𝗰𝗵𝗮𝗻𝗴𝗶𝗻𝗴 𝗶𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱.
     一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一                                                                                                   一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一 
 has been licensed under GNU General Public License                                                                 has been licensed under GNU General Public License
-𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗦𝗼𝘂𝗹 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝗟𝗮𝗯 | 𝗛𝘆𝗽𝗲𝗩𝗼𝗶𝗱𝘀
+𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁                                                          𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭 (𝐂) 𝟐𝟎𝟐𝟏 𝗞𝗿𝗮𝗸𝗶𝗻𝘇 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗟𝗮𝗯 | 𝗞𝗿𝗮𝗸𝗶𝗻𝘇𝗕𝗼𝘁
 ====================================================================一デ 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿𝐫 デ 一======================================================================="""
