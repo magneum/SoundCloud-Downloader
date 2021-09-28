@@ -13,7 +13,7 @@ ENV VIRTUAL_ENV "/venv"
 RUN python -m venv $VIRTUAL_ENV
 ENV PATH "$VIRTUAL_ENV/bin:$PATH"
 RUN apt update && apt upgrade -y && apt install git -y && apt install python3 -y && apt install python3-pip -y && apt install -y ffmpeg opus-tools bpm-tools
-RUN git clone https://github.com/HypeVoidSoul/SoundCloud-Downloader.git
+RUN git clone https://github.com/Krakinz/SoundCloud-Downloader.git
 RUN cd SoundCloud-Downloader
 WORKDIR /SoundCloud-Downloader
 RUN pip install -r  𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿.txt

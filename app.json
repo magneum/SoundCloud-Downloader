@@ -1,6 +1,6 @@
 {"logo": "https://telegra.ph/file/2752e78446fe4e63a7182.jpg",
   "name": "𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿",
-  "repository": "https://github.com/HypeVoidSoul/SoundCloud-Downloader.git",
+  "repository": "https://github.com/Krakinz/SoundCloud-Downloader.git",
   "stack": "container",
   "description": "𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱🟠𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿",
   "website": "https://t.me/hypevoids",
@@ -9,7 +9,7 @@
   "description":"api_id part of your Telegram API Key From @HVApiBot Only",
   "required":true},
   "CODE":{
-  "description":"ENTER THE CODE GIVEN BY @HYPEVOIDBOT .....",
+  "description":"ENTER THE CODE GIVEN BY @KrakinzBot .....",
   "required":true},
   "API_HASH":{
   "description":"api_hash part of your Telegram API Key From @HVApiBot Only",
