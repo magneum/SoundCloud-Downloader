@@ -19,10 +19,7 @@ DΣV MΣNƬIӨN:
 ## 〽️ MΣΣƬ US ӨЯ CΉΣCK ӨƬΉΣЯ BӨƬS
 - [![Generic badge](https://img.shields.io/badge/SoundCloudDownloader-Vïå_ßð†-orange.svg)](https://t.me/SOUNDCLOUDLI_BOT)
 𝙳𝚒𝚛𝚎𝚌𝚝𝚕𝚢 𝚞𝚜𝚎 𝚃𝚑𝚎 𝙱𝚘𝚝 𝚒𝚗 𝚝𝚎𝚕𝚎𝚐𝚛𝚊𝚖
-- [![Generic badge](https://img.shields.io/badge/𝙷𝚢𝚙𝚎𝚅𝚘𝚒𝚍𝙱𝚘𝚝-Vïå_ßð†-orange.svg)](https://t.me/KrakinzBot)
-𝘛𝘶𝘳𝘯 𝘰𝘯 𝘣𝘰𝘵 𝘪𝘯 𝘵𝘦𝘭𝘦𝘨𝘳𝘢𝘮 𝘢𝘯𝘥 𝘵𝘺𝘱𝘦 /us
-- [![Generic badge](https://img.shields.io/badge/𝙺𝚁𝚈𝙾𝙺𝙴𝚈_𝙱𝙾𝚃-Vïå_ßð†-brown.svg)](https://t.me/kryoli_bot)
-𝘎𝘦𝘵 𝘺𝘰𝘶𝘳 𝘬𝘳𝘺𝘰-𝘬𝘦𝘺 𝘧𝘳𝘰𝘮 𝘩𝘦𝘳!
+- [![Generic badge](https://img.shields.io/badge/KrakinzBot-Vïå_ßð†-Yellow.svg)](https://t.me/KrakinzBot) 𝘛𝘶𝘳𝘯 𝘰𝘯 𝘣𝘰𝘵 𝘪𝘯 𝘵𝘦𝘭𝘦𝘨𝘳𝘢𝘮 𝘢𝘯𝘥 𝘵𝘺𝘱𝘦 /us
 
 ## 💠 DΣPLӨY
 - ꜰɪʀꜱᴛ ꜰᴏʀᴋ ᴀɴᴅ ꜱᴛᴀʀ ᴛʜᴇ ʀᴇᴘᴏ ᴀɴᴅ ᴛʜᴇɴ ᴄʜᴀɴɢᴇ [app](app) ᴛᴏ app.json
